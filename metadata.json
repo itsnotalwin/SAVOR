@@ -1,0 +1,6 @@
+{
+  "name": "Savor - Recipe & Shopping List PWA",
+  "description": "An offline-first, PWA installable recipe manager and smart shopping list app with Claude/Anthropic terracotta aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

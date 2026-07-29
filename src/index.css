@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #FAF8F5;
+    color: #242220;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, .font-serif-title {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F3EFEA;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9D2C7;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C8BFB0;
+}
+
+/* Safe area inset utilities for mobile devices */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 16px);
+}
+
+/* Glassmorphism subtle effect for mobile sticky headers */
+.backdrop-blur-sand {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(250, 248, 245, 0.88);
+}
+
+/* Print styles for printing recipe card or shopping list directly */
+@media print {
+  @page {
+    size: auto;
+    margin: 10mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    color: #1B1B1B !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset modal containers for clean paper printout */
+  .fixed, .absolute {
+    position: static !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    max-height: 320px !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    page-break-inside: avoid !important;
+  }
+
+  .bg-black\/50, .backdrop-blur-xs, .shadow-2xl, .shadow-md {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .max-h-\[92vh\], .overflow-y-auto {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .print-page-break {
+    page-break-before: always;
+  }
+
+  .print-card-header {
+    border-bottom: 2px solid #242220 !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .print-card-title {
+    font-size: 24pt !important;
+    font-weight: 700 !important;
+  }
+}
